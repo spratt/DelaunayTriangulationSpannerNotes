@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LatexTemplate
-% February 10, 2013
+% DelaunayTriangulationSpannerNotes
+% March 20th, 2013
 % By Simon Pratt (mostly)
 \documentclass{tufte-handout}
 
@@ -49,17 +49,38 @@ If all edges along the direct DT path between points $a,b \in S$ are
 either all above or all below the line connecting $a,b$, we say that
 this is a one-sided path.
 
+\begin{Lemma}
 
+  Points along a direct DT path are monotonic in $x$.
+
+\end{Lemma}
+
+\begin{Lemma}
+
+  All points along the direct DT path from $a$ to $b$ are contained
+  within or on the boundary of the circle with $a$ and $b$
+  diametrically opposed.
+  
+\end{Lemma}
+
+\begin{Lemma}
+
+  The boundary of a connected union of circles has boundary at most
+  $\pi \cdot (x_r - x_l)$ where $x_r$ and $x_l$ are the extreme x
+  coordinates of any of the circles.
+  
+\end{Lemma}
+
+From these lemmas, it follows the direct DT path is at most $\pi/2$
+times as long as the euclidean distance between the endpoints.
 
 \section{The Harder Case}
 
-Blah blah blah, blah blah blah blah.  Blah blah blah, blah blah blah
-blah.  Blah blah blah, blah blah blah blah.
+TODO
 
 \part{Keil's Results}
 
-Blah blah blah, blah blah blah blah.  Blah blah blah, blah blah blah
-blah.  Blah blah blah, blah blah blah blah.
+TODO
 
 % Content ends here
 
