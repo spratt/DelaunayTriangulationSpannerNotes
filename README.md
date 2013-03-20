@@ -1,6 +1,7 @@
 DelaunayTriangulationSpannerNotes
-* March 20th, 2013
-* By Simon Pratt
+=================================
+## March 20th, 2013
+## By Simon Pratt
 
 A collection of notes on the Delaunay triangulation as a spanner.
 
