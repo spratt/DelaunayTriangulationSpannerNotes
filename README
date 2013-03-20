@@ -1,17 +1,8 @@
-LatexTemplate
-February 10, 2013
-By Simon Pratt (mostly)
+DelaunayTriangulationSpannerNotes
+March 20th, 2013
+By Simon Pratt
 
-A template for writing assignments in Latex.
+A collection of notes on the Delaunay triangulation as a spanner.
 
-To see the output of the template file:
+https://github.com/spratt/DelaunayTriangulationSpannerNotes/blob/OUTPUT/assignment.pdf
 
-https://github.com/spratt/LatexTemplate/blob/OUTPUT/assignment.pdf
-
-Instructions:
-
- o Fork the repository
- o Add your content to assignment.tex
- o Add your references to references.bib
- o Add your extra files to the Makefile
- o Run make
