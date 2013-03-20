@@ -4,7 +4,7 @@
 # November 10, 2010
 ######################################################################
 
-ASSIGN      = assignment
+DOCUMENT    = dobkin_notes
 
 REFERENCES 	= references
 
@@ -12,8 +12,7 @@ PARTS       =
 
 FIGURES 	=
 
-STYLES      = Assignment \
-			  CGAlgorithms \
+STYLES      = CGAlgorithms \
 			  HeaderStuff \
 			  QuestionAnswer \
 			  TheoremStuff
@@ -24,7 +23,7 @@ STYLES      = Assignment \
 
 .PHONY: open clean
 
-MAIN_TEX	= ${ASSIGN}.tex
+MAIN_TEX	= ${DOCUMENT}.tex
 
 PARTS_TEX	= ${addsuffix .tex,${PARTS}}
 
@@ -32,7 +31,7 @@ BIBFILES	= ${addsuffix .bib,${REFERENCES}}
 
 STYLES_STY  = ${addsuffix .sty,${STYLES}}
 
-PDF     	= ${ASSIGN}.pdf
+PDF     	= ${DOCUMENT}.pdf
 
 TEX     	= pdflatex
 TEXOPTS 	= -halt-on-error
@@ -41,7 +40,7 @@ BIBTEX  	= bibtex
 
 # if your open prorgram isn't listed, OR (||) it to the end
 open: ${PDF}
-	open $< || gnome-open $<
+	open $< || gnome-open $< &> /dev/null
 
 ${PDF}: ${MAIN_TEX} ${PARTS_TEX} ${FIGURES} ${BIBFILES} ${STYLES_STY}
 

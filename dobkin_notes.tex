@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LatexTemplate
+% February 10, 2013
+% By Simon Pratt (mostly)
+\documentclass{tufte-handout}
+\usepackage{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuration
+\fancyhead[L]{Dobkin Notes}
+\fancyhead[R]{Simon Pratt}
+\bibliographystyle{plain}
+
+\title{Dobkin Notes}
+\author{Simon Pratt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+\begin{document}
+
+\maketitle
+
+\vspace{5mm}
+
+% Content starts here
+
+The Delaunay triangulation of a set of points in the plane is a
+spanner with spanning ratio $c \le ((1 + \sqrt{5})/2)\pi \approx
+5.08$.  This was proven in the paper ``Delaunay Graphs Are Almost as
+Good as Complete Graphs'' by Dobkin, Friedman, and Supowit
+\cite{Dobkin:1990}.
+
+\section{Introduction}
+
+Let $S$ be a set of points in the plane and $DT(S)$ be the edges of
+the Delaunay triangulation of $S$.  Let the path along the Delaunay
+edges be a \emph{Delaunay path}.
+
+\section{One-Sided Path: The Easy Case}
+
+If all edges along the Delaunay path are either all above or all below
+the line connecting points $a,b \in S$, we say that this is a
+one-sided path.
+
+\section{The Harder Case}
+
+Blah blah blah, blah blah blah blah.  Blah blah blah, blah blah blah
+blah.  Blah blah blah, blah blah blah blah.
+
+% Content ends here
+
+\bibliography{references} % uncomment line to add references
+
+\end{document}
