@@ -1,5 +1,5 @@
-DelaunayTriangulationSpannerNotes
-=================================
+Delaunay Triangulation Spanner Notes
+====================================
 * By Simon Pratt
 
 A collection of notes on the Delaunay triangulation as a spanner.
