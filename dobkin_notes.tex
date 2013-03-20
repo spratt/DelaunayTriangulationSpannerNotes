@@ -7,12 +7,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuration
-\fancyhead[L]{Dobkin Notes}
-\fancyhead[R]{Simon Pratt}
-\bibliographystyle{plain}
+\newcommand{\DocTitle}{Delaunay Triangulation Spanner Notes}
+\newcommand{\DocAuthor}{Simon Pratt}
 
-\title{Dobkin Notes}
-\author{Simon Pratt}
+\title{\DocTitle}
+\author{\DocAuthor}
+\fancyhead[L]{\DocTitle}
+\fancyhead[R]{\DocAuthor}
+\bibliographystyle{plain}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Document
@@ -20,34 +22,43 @@
 
 \maketitle
 
-\vspace{5mm}
-
 % Content starts here
+
+\part{Dobkin's Results}
 
 The Delaunay triangulation of a set of points in the plane is a
 spanner with spanning ratio $c \le ((1 + \sqrt{5})/2)\pi \approx
 5.08$.  This was proven in the paper ``Delaunay Graphs Are Almost as
 Good as Complete Graphs'' by Dobkin, Friedman, and Supowit
-\cite{Dobkin:1990}.
+\cite{Dobkin:1987} \cite{Dobkin:1990}.
 
 \section{Introduction}
 
 Let $S$ be a set of points in the plane and $DT(S)$ be the edges of
-the Delaunay triangulation of $S$.  Let the path along the Delaunay
-edges be a \emph{Delaunay path}.
+the Delaunay triangulation of $S$.  Let a path along the Delaunay
+edges be a \emph{direct DT path}.
 
 \section{One-Sided Path: The Easy Case}
 
-If all edges along the Delaunay path are either all above or all below
-the line connecting points $a,b \in S$, we say that this is a
-one-sided path.
+If all edges along the direct DT path between points $a,b \in S$ are
+either all above or all below the line connecting $a,b$, we say that
+this is a one-sided path.
+
+
 
 \section{The Harder Case}
 
 Blah blah blah, blah blah blah blah.  Blah blah blah, blah blah blah
 blah.  Blah blah blah, blah blah blah blah.
 
+\part{Keil's Results}
+
+Blah blah blah, blah blah blah blah.  Blah blah blah, blah blah blah
+blah.  Blah blah blah, blah blah blah blah.
+
 % Content ends here
+
+\newpage
 
 \bibliography{references} % uncomment line to add references
 
