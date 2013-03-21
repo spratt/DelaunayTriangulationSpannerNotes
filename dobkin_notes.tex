@@ -9,6 +9,7 @@
 \usepackage{TheoremStuff}
 \usepackage{HeaderStuff}
 \usepackage{natbib}
+\usepackage[pdftex]{graphicx}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuration
@@ -40,14 +41,21 @@ Good as Complete Graphs'' by Dobkin, Friedman, and Supowit
 \section{Introduction}
 
 Let $S$ be a set of points in the plane and $DT(S)$ be the edges of
-the Delaunay triangulation of $S$.  Let a path along the Delaunay
-edges be a \emph{direct DT path}.
+the Delaunay triangulation of $S$.
+
+We consider the path between two arbitray points $a,b \in S$.  Let the
+line connecting $a,b$ be the \emph{direct line}.  We construct a path
+along the Delaunay edges by
+
+\includegraphics[scale=0.75]{figures/voronoi.pdf}
 
 \section{One-Sided Path: The Easy Case}
 
 If all edges along the direct DT path between points $a,b \in S$ are
-either all above or all below the line connecting $a,b$, we say that
-this is a one-sided path.
+either all above or all below the direct line, we say that this is a
+one-sided path.
+
+\includegraphics[scale=0.75]{figures/one-sided_path.pdf}
 
 \begin{Lemma}
 
@@ -71,12 +79,15 @@ this is a one-sided path.
   
 \end{Lemma}
 
-From these lemmas, it follows the direct DT path is at most $\pi/2$
-times as long as the euclidean distance between the endpoints.
+From these lemmas, it follows that the one-sided path is at most
+$\pi/2$ times as long as the euclidean distance between the endpoints.
 
 \section{The Harder Case}
 
-TODO
+The direct DT path may cross the direct line $\BigOmega{n}$ times,
+which can yield a much longer path.
+
+
 
 \part{Keil's Results}
 
