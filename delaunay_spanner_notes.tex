@@ -44,10 +44,12 @@ Let $S$ be a set of points in the plane and $DT(S)$ be the edges of
 the Delaunay triangulation of $S$.
 
 We consider the path between two arbitray points $a,b \in S$.  Let the
-line connecting $a,b$ be the \emph{direct line}.  We construct a path
-along the Delaunay edges by
+line connecting $a,b$ be the \emph{direct line}.  We construct
+\emph{the direct DT path} by walking along the direct line, each time
+a new face of the Voronoi diagram is reache we add the corresponding
+Delaunay edge.
 
-\includegraphics[scale=0.75]{figures/voronoi.pdf}
+\includegraphics[scale=0.75]{figures/voronoi2.pdf}
 
 \section{One-Sided Path: The Easy Case}
 
@@ -87,7 +89,7 @@ $\pi/2$ times as long as the euclidean distance between the endpoints.
 The direct DT path may cross the direct line $\BigOmega{n}$ times,
 which can yield a much longer path.
 
-
+\includegraphics[scale=0.75]{figures/two-sided_path.pdf}
 
 \part{Keil's Results}
 
