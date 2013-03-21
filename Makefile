@@ -12,6 +12,8 @@ PARTS       =
 
 FIGURES 	=
 
+STYLES_DIR  = includes
+
 STYLES      = CGAlgorithms \
 			  HeaderStuff \
 			  QuestionAnswer \
@@ -29,7 +31,7 @@ PARTS_TEX	= ${addsuffix .tex,${PARTS}}
 
 BIBFILES	= ${addsuffix .bib,${REFERENCES}}
 
-STYLES_STY  = ${addsuffix .sty,${STYLES}}
+STYLES_STY  = ${addprefix ${STYLES_DIR}/,${addsuffix .sty,${STYLES}}}
 
 PDF     	= ${DOCUMENT}.pdf
 
