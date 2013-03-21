@@ -4,7 +4,7 @@
 # November 10, 2010
 ######################################################################
 
-DOCUMENT    = dobkin_notes
+DOCUMENT    = delaunay_spanner_notes
 
 REFERENCES 	= references
 
@@ -53,4 +53,4 @@ ${PDF}: ${MAIN_TEX} ${PARTS_TEX} ${FIGURES} ${BIBFILES} ${STYLES_STY}
 
 # add stuff to delete here
 clean:
-	rm -f *.log *.aux *.dvi *.blg *.bbl ${PDF}
+	rm -f *.log *.aux *.dvi *.blg *.bbl *.out ${PDF}
