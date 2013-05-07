@@ -13,7 +13,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuration
-\newcommand{\DocTitle}{Delaunay Triangulation Spanner Notes}
+\newcommand{\DocTitle}{Delaunay Graph Spanner Notes}
 \newcommand{\DocAuthor}{Simon Pratt}
 
 \title{\DocTitle}
@@ -27,8 +27,24 @@
 \begin{document}
 
 \maketitle
-
+\vspace{1cm}
 % Content starts here
+
+In these notes, we discuss the major results with respect to the
+Delaunay Graph as a spanner.
+
+\part{Delaunay Graph}
+
+$P$ is a set of points in the plane, $DG(S)$ is a graph whose vertex
+set is $P$ where $u$ and $v$ are connected by an edge only if the
+voronoi regions for $u$ and $v$ share an edge.
+
+\begin{figure}
+  % http://groups.csail.mit.edu/graphics/classes/6.838/F01/lectures/Delaunay/Delaunay2D.ppt
+  \includegraphics{figures/delaunay_graph.png}
+  \caption{The Delaunay graph on $P$, including the boundaries of the
+    Voronoi regions.}
+\end{figure}
 
 \part{Dobkin's Results}
 
@@ -40,24 +56,27 @@ Good as Complete Graphs'' by Dobkin, Friedman, and Supowit
 
 \section{Introduction}
 
-Let $S$ be a set of points in the plane and $DT(S)$ be the edges of
-the Delaunay triangulation of $S$.
-
-We consider the path between two arbitray points $a,b \in S$.  Let the
+We consider the path between two arbitray points $a,b \in P$.  Let the
 line connecting $a,b$ be the \emph{direct line}.  We construct
 \emph{the direct DT path} by walking along the direct line, each time
 a new face of the Voronoi diagram is reache we add the corresponding
-Delaunay edge.
-
-\includegraphics[scale=0.75]{figures/voronoi2.pdf}
+edge in the Delaunay Graph.
 
 \section{One-Sided Path: The Easy Case}
 
-If all edges along the direct DT path between points $a,b \in S$ are
+If all edges along the direct DT path between points $a,b \in P$ are
 either all above or all below the direct line, we say that this is a
 one-sided path.
 
-\includegraphics[scale=0.75]{figures/one-sided_path.pdf}
+\begin{figure*}
+  \includegraphics[scale=1.0]{figures/one-sided_path.pdf}
+  \caption{The cyan line shows the direct path, the green line shows
+    the direct DT path, the dashed red lines show the boundaries of
+    the Voronoi regions, and the circumcircles (also dashed) are
+    blue.}
+\end{figure*}
+
+% is this necessary for the proof??
 
 \begin{Lemma}
 
@@ -89,7 +108,10 @@ $\pi/2$ times as long as the euclidean distance between the endpoints.
 The direct DT path may cross the direct line $\BigOmega{n}$ times,
 which can yield a much longer path.
 
-\includegraphics[scale=0.75]{figures/two-sided_path.pdf}
+\begin{figure}
+  \includegraphics[scale=1.0]{figures/two-sided_path.pdf}
+  \caption{A similar diagram with a two-sided direct DT path.}
+\end{figure}
 
 \part{Keil's Results}
 
