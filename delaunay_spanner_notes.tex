@@ -95,14 +95,81 @@ points $a$ and $b$ lies on the x-axis.
 
 \begin{Lemma}
 
-  The boundary of a connected union of circles has boundary at most
-  $\pi \cdot (x_r - x_l)$ where $x_r$ and $x_l$ are the extreme x
+  The boundary of a connected union of $n$ circles has length at most
+  $\pi \cdot ( x_r - x_l )$ where $x_r$ and $x_l$ are the extreme x
   coordinates of any of the circles.
   
 \end{Lemma}
 
-From these lemmas, it follows that the one-sided path is at most
+\begin{proof}
+
+  We prove by induction that the upper boundary of the circles has
+  length at most $\frac{\pi}{2} \cdot ( x_r - x_l )$, from which the
+  lemma follows by symmetry.
+  
+  In the case of a single circle, the upper boundary is half of the
+  circumference of the circle:, $\frac{\pi}{2} \cdot ( x_r - x_l )$.
+  The lemma holds for $k \ge 1$ circles, we now show that it holds for
+  $k+1$ circles.
+
+  Without loss of generality, we say that the $k+1$th circle is added
+  at the right-most extremity of the $k$ circles.  
+
+\begin{figure*}
+  \includegraphics[scale=2.6]{figures/circle_unions.pdf}
+  \caption{Let $B$ be the upper boundary of the $k$ circles.  Let $b'$
+    be the length of $B$ contained within the $k+1$th circle.  Let $x$
+    be the upper boundary of the new circle not contained within $B$,
+    and $x'$ be the rest.  Let $y$ be the circle whose left-most point
+    is the left-most point of the $k+1$th circle, and whose right-most
+    point is the right-most point of $B$.  Let $z$ be the circle whose
+    left-most point is the right-most point of $B$ and whose
+    right-most point is the right-most point of the $k+1$th circle.}
+\end{figure*}
+
+From the inductive hypothesis, we know
+
+\begin{itemize}
+
+\item $B \le \frac{\pi}{2} \cdot (d + d')$
+
+\item $z \le \frac{\pi}{2} \cdot d''$
+
+\end{itemize}
+
+Therefore $B - b' + x \le \frac{\pi}{2} \cdot (d + d' + d'') = B
++ z$.
+
+So we wish to show: $x - b' \le z$.
+
+We know:
+
+\begin{itemize}
+
+\item $y \le x' + b' \leftrightarrow y - x' \le b'$
+
+\item $x' + x = y + z$
+
+\end{itemize}
+
+So
+
+\begin{align*}
+  %
+  x + x' &= y + z \\
+  x &= y + z - x' \\
+  x &\le z + b' \\
+  x - b' &\le z \\
+  %
+\end{align*}
+  
+\end{proof}
+
+From lemmas 1 and 3, it follows that the one-sided path is at most
 $\pi/2$ times as long as the euclidean distance between the endpoints.
+
+The properties of the delaunay triangulation don't seem to allow for
+any kind of zig-zag one-sided path.
 
 \section{The Harder Case}
 
@@ -122,9 +189,9 @@ far from the next point above the x-axis. \footnotemark
 Let $a = p_0, \ldots, p_i, \ldots, p_n = b$ be the direct DT path from
 $a$ to $b$.  For each pair $p_i, p_{i+1}$ create the circle on whose
 boundary these points lie, and whose centre is on the line segment
-between $a$ and $b$.  Let the union of these circles be $T$.
+between $a$ and $b$.  Let the union of these circles be $C$.
 
-Let $h = min \{ y(q): q \text{ lies on } T \}$, and $w = x(b_j) -
+Let $h = min \{ y(q): q \text{ lies on } C \}$, and $w = x(b_j) -
 x(b_i)$ where $b_i$ is the last point before the direct DT path dips
 below the x-axis and $b_j$ is the first point on or above the x-axis
 after $b_i$.  We take the direct DT path only if $h \le w/4$.
@@ -140,6 +207,15 @@ after $b_i$.  We take the direct DT path only if $h \le w/4$.
 Otherwise, we follow the lower convex hull of all points in $P$
 between $b_i$ and $b_j$, who are above the x-axis and below the line
 segment between $b_i$ and $b_j$.
+
+This is still within the spanning ratio because...?
+
+\begin{Lemma}
+
+  If $e = (u,v)$ is an edge on the lower convex hull between $b_i$ and
+  $b_j$, then the direct DT path from $u$ to $v$ is one-sided.
+  
+\end{Lemma}
 
 \newpage
 \part{Keil's Results}
