@@ -177,36 +177,34 @@ The direct DT path may cross the x-axis $\BigOmega{n}$ times,
 which can yield a much longer path.
 
 \begin{figure}
-  \includegraphics[scale=1.0]{figures/two-sided_path.pdf}
-  \caption{A similar diagram with a two-sided direct DT path.}
+  \includegraphics[scale=1.0]{figures/two_sided_path_center_circles.pdf}
+  \caption{A two-sided direct DT path showing the circles whose union
+    forms $C$ and the dotted circle with $a,b$ diametrically
+    oppposed.}
 \end{figure}
 
 The general idea is that we stick to the region above the x-axis as
 much as possible, and follow the path below the x-axis if it isn't too
-far from the next point above the x-axis. \footnotemark
-
-\footnotetext{
-Let $a = p_0, \ldots, p_i, \ldots, p_n = b$ be the direct DT path from
-$a$ to $b$.  For each pair $p_i, p_{i+1}$ create the circle on whose
-boundary these points lie, and whose centre is on the line segment
-between $a$ and $b$.  Let the union of these circles be $C$.
-
-Let $h = min \{ y(q): q \text{ lies on } C \}$, and $w = x(b_j) -
-x(b_i)$ where $b_i$ is the last point before the direct DT path dips
-below the x-axis and $b_j$ is the first point on or above the x-axis
-after $b_i$.  We take the direct DT path only if $h \le w/4$.
-}
-
-\begin{figure}
-  \includegraphics[scale=1.0]{figures/two_sided_path_center_circles.pdf}
-  \caption{A two-sided direct DT path showing the circles whose union
-    forms $T$ and the dotted circle with $a,b$ diametrically
-    oppposed.}
-\end{figure}
+far from the next point above the x-axis.
 
 Otherwise, we follow the lower convex hull of all points in $P$
 between $b_i$ and $b_j$, who are above the x-axis and below the line
 segment between $b_i$ and $b_j$.
+
+\begin{figure}
+  \includegraphics[scale=0.6]{figures/height_width.pdf}
+  \caption{Let $a = p_0, \ldots, p_i, \ldots, p_n = b$ be the direct
+    DT path from $a$ to $b$.  For each pair $p_i, p_{i+1}$ create the
+    circle on whose boundary these points lie, and whose centre is on
+    the line segment between $a$ and $b$.  Let the union of these
+    circles be $C$.  Let $b_i$ be the last point before the direct DT
+    path dips below the x-axis, let $b_j$ be the next point after
+    $b_i$ on or above the x-axis.  Let $T$ be the section of $C$
+    between $b_i$ and $b_j$.  Let $h = min \{ y(q): q \text{ lies on }
+    T \}$, and $w = x(b_j) - x(b_i)$.}
+\end{figure}
+
+To be specific, we take the direct DT path only if $h \le w/4$.
 
 This is still within the spanning ratio because...?
 
