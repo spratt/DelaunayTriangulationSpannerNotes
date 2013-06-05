@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70010" creator="Ipe 7.0.10">
-<info created="D:20130604150026" modified="D:20130605111219"/>
+<info created="D:20130605114857" modified="D:20130605155813"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -232,52 +232,65 @@ h
 <page>
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black">
-64 0 0 64 240 704 e
+<path layer="alpha" matrix="1 0 0 1 21.7535 -111.254" stroke="purple" pen="heavier">
+1.11047 0 0 1.11047 199.753 671.103 e
 </path>
-<path matrix="1 0 0 1 -0.591716 -0.591716" stroke="black">
-80 0 0 80 368 704 e
+<path matrix="1 0 0 1 28.4867 -142.579" stroke="orange" pen="heavier">
+1.11047 0 0 1.11047 199.753 671.103 e
 </path>
-<path stroke="navy" pen="ultrafat">
-1.0474 0 0 1.0474 206.957 758.745 e
+<path matrix="1 0 0 1 52.5606 -95.1146" stroke="brown" pen="heavier">
+1.11047 0 0 1.11047 199.753 671.103 e
 </path>
-<path stroke="turquoise" pen="ultrafat">
-0.78126 0 0 0.78126 295.057 671.276 e
+<path matrix="1 0 0 1 7.92013 -95.5856" stroke="blue">
+220.107 655.297 m
+220.222 640 l
 </path>
-<path stroke="darkmagenta" pen="ultrafat">
-1.22952 0 0 1.22952 434.354 748.531 e
+<text matrix="1 0 0 1 17.7757 -97.1449" transformations="translations" pos="213.219 635.013" stroke="red" type="label" width="7.401" height="4.289" depth="0" valign="baseline">$w$</text>
+<text matrix="1 0 0 1 13.1617 -101.532" transformations="translations" pos="215.643 648.479" stroke="blue" type="label" width="5.74" height="6.918" depth="0" valign="baseline">$h$</text>
+<text matrix="1 0 0 1 22.0141 -89.6397" transformations="translations" pos="231.803 656.559" stroke="brown" type="label" width="8.473" height="6.919" depth="2.85" valign="baseline">$b_j$</text>
+<text matrix="1 0 0 1 18.3206 -108.845" transformations="translations" pos="203.523 673.258" stroke="purple" type="label" width="7.592" height="6.923" depth="1.49" valign="baseline">$b_i$</text>
+<text matrix="1 0 0 1 -11.9393 -98.6311" transformations="translations" pos="222.107 617.507" stroke="orange" type="label" width="17.68" height="6.923" depth="2.32" valign="baseline">$b_{i+1}$</text>
+<text matrix="1 0 0 1 19.5432 -100.503" pos="219.309 663.755" stroke="seagreen" type="label" width="7.206" height="6.808" depth="0" valign="baseline">$T$</text>
+<path stroke="lightgray" dash="dashed">
+16 0 0 16 224 544 e
 </path>
-<path stroke="darkgray" dash="dashed">
-207.329 758.074 m
-294.721 671.137 l
-434.457 748.515 l
-434.457 748.515 l
+<path stroke="seagreen" pen="fat">
+221.076 559.789 m
+16.0575 0 0 -16.0575 224 544 228.097 559.526 a
+</path>
+<path stroke="seagreen" pen="fat">
+227.913 559.375 m
+32.0197 0 0 -32.0197 256 544 252.328 575.808 a
 </path>
 <path stroke="darkgray" dash="dotted">
-207.021 758.849 m
-207.579 704 l
-207.579 704 l
+176 544 m
+288 544 l
 </path>
-<path stroke="darkgray" dash="dotted">
-434.235 748.865 m
-434.798 704 l
+<path matrix="1 0 0 1 8.04272 -111.767" stroke="blue">
+220.107 655.297 m
+220.222 640 l
 </path>
-<path stroke="darkgreen" pen="heavier">
-207.579 704 m
-434.798 704 l
+<path stroke="red">
+252.214 543.97 m
+221.567 543.97 l
+221.567 543.97 l
 </path>
-<path stroke="darkorange" pen="heavier">
-295.015 736.701 m
-295.153 704 l
+<text matrix="1 0 0 1 -1.54905 -114.526" transformations="translations" pos="215.643 648.479" stroke="blue" type="label" width="13.489" height="6.919" depth="0.83" valign="baseline">$-h$</text>
+<path matrix="1 0 0 1 -0.612947 -15.814" stroke="darkgray" dash="dotted">
+176 544 m
+288 544 l
 </path>
-<text matrix="1 0 0 1 -12.426 4.73373" transformations="translations" pos="311.129 660.68" stroke="turquoise" type="label" width="17.68" height="6.923" depth="2.32" valign="baseline">$b_{i+1}$</text>
-<text matrix="1 0 0 1 -2.95858 -10.6509" transformations="translations" pos="207.579 774.881" stroke="navy" type="label" width="7.592" height="6.923" depth="1.49" valign="baseline">$b_i$</text>
-<text matrix="1 0 0 1 -17.7515 12.426" transformations="translations" pos="448.408 743.52" stroke="darkmagenta" type="label" width="8.473" height="6.919" depth="2.85" valign="baseline">$b_j$</text>
-<text matrix="1 0 0 1 -26.6272 -3.5503" transformations="translations" pos="308.171 720.443" stroke="darkorange" type="label" width="5.74" height="6.918" depth="0" valign="baseline">$h$</text>
-<text matrix="1 0 0 1 -12.426 -2.95858" transformations="translations" pos="322.964 709.2" stroke="darkgreen" type="label" width="7.401" height="4.289" depth="0" valign="baseline">$w$</text>
-<path stroke="darkgray" dash="dashed" pen="heavier">
-176 704 m
-448 704 l
+<text transformations="translations" pos="196.314 556.107" stroke="darkgray" type="label" width="12.034" height="6.812" depth="1.49" valign="baseline">$R_3$</text>
+<text matrix="1 0 0 1 38.6157 -42.1708" transformations="translations" pos="196.314 556.107" stroke="darkgray" type="label" width="12.034" height="6.812" depth="1.49" valign="baseline">$R_2$</text>
+<text matrix="1 0 0 1 68.8953 -2.3292" transformations="translations" pos="196.314 556.107" stroke="darkgray" type="label" width="12.034" height="6.812" depth="1.49" valign="baseline">$R_4$</text>
+<text matrix="1 0 0 1 42.5385 -25.7438" transformations="translations" pos="196.314 556.107" stroke="darkgray" type="label" width="12.034" height="6.812" depth="1.49" valign="baseline">$R_1$</text>
+<path stroke="darkgray" dash="dash dotted">
+252.214 575.598 m
+252.214 528.156 l
+</path>
+<path stroke="darkgray" dash="dash dotted">
+221.445 574.495 m
+221.445 528.034 l
 </path>
 </page>
 </ipe>

@@ -193,24 +193,27 @@ far from the next point above the x-axis.
 \newpage
 
 \begin{figure}
-  \includegraphics[scale=1.2]{figures/height_width.pdf}
+  \includegraphics[scale=2.9]{figures/height_width.pdf}
   \caption{Let $a = p_0, \ldots, p_i, \ldots, p_n = b$ be the direct
     DT path from $a$ to $b$.  For each pair $p_i, p_{i+1}$ create the
     circle on whose boundary these points lie, and whose centre is on
     the line segment between $a$ and $b$.  Let the union of these
-    circles be $C$.  Let $b_i$ be the last point before the direct DT
+    circles be $C$.
+
+    Let $b_i$ be the last point before the direct DT
     path dips below the x-axis, let $b_j$ be the next point after
     $b_i$ on or above the x-axis.  Let $T$ be the section of $C$
     between $b_i$ and $b_j$.  Let $h = min \{ y(q): q \text{ lies on }
-    T \}$, and $w = x(b_j) - x(b_i)$.}
+    T \}$, and $w = x(b_j) - x(b_i)$.
+
+    Let $R_1$ be the region between $b_i$ and $b_j$ above the line
+    $y=-h$.  Let $R_2$ be the region below the line $y=-h$.  Let $R_3$
+    be the region above the line $y=-h$ and to the left of $b_i$.  Let
+    $R_4$ be the region above the line $y=-h$ and to the right of
+    $b_j$. }
 \end{figure}
 
 To be specific, we take the direct DT path only if $h \le w/4$.
-
-\begin{figure}
-  \includegraphics[scale=3.0]{figures/height_width2.pdf}
-  \caption{An example showing $T$ where $h > w/4$.}
-\end{figure}
 
 Otherwise, we follow the lower convex hull of all points in $P$
 between $b_i$ and $b_j$, who are above the x-axis and below the line
@@ -218,18 +221,70 @@ segment between $b_i$ and $b_j$.
 
 % diagram showing lower convex hull
 
-This is still within the spanning ratio because...?
+$(z_k,z_{k+1})$ is an edge on the lower convex hull between $b_i$ and
+$b_j$.  Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
+Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
 
 \begin{Lemma}
 
-  If $e = (u,v)$ is an edge on the lower convex hull between $b_i$ and
-  $b_j$, then the direct DT path from $u$ to $v$ is one-sided.
+  No points of $P$ are within $L$ and $R_3$.
   
 \end{Lemma}
 
-% diagram showing conditions of lemma
+\begin{proof}
+  
+  From Lemma 2, we know all points along the direct DT path must fall
+  within the circle $(z_k, z_{k+1})$, therefore $R_3$ and the lower
+  semi-circle do not intersect.
 
-% proof of lemma
+\end{proof}
+
+\begin{Lemma}
+
+  No points of $P$ are within $L$ and $R_2$.
+  
+\end{Lemma}
+
+\begin{proof}
+
+  Since $z_k \in P$, it must lie above $T$ since it can't be within $C$,
+  therefore $y(z_k) \ge h > w/4$ by the fact that we only build this
+  lower hull in the case where $h > w/4$.
+
+\end{proof}
+
+\begin{Lemma}
+
+  No points of $P$ are within $L$ and $R_4$.
+  
+\end{Lemma}
+
+\begin{proof}
+
+  TODO.
+
+\end{proof}
+
+\begin{Lemma}
+
+  The direct DT path from $z_k$ to $z_{k+1}$ is one-sided.
+  
+\end{Lemma}
+
+\begin{proof}
+
+  We prove this by showing that $L$ contains no points of $P$.  From
+  Lemmas 4, 5, and 6 it remains only to show that there are no points
+  of $P$ within $L$ and $R_1$.
+
+  No points of $P$ in $R_1$ exist between the lines $y=h$ and $y=-h$,
+  since this area is strictly within $C$.
+
+  No points of $P$ may exist in $R_1$ above $h$ but below the line
+  segment $z_kz_{k+1}$, otherwise it would be on the lower convex hull
+  and $z_k$ and $z_{k+1}$ would not be adjacent.
+
+\end{proof}
 
 \newpage
 \part{Keil's Results}
