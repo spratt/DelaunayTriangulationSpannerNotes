@@ -16,7 +16,6 @@ STYLES_DIR  = includes
 
 STYLES      = CGAlgorithms \
 			  HeaderStuff \
-			  QuestionAnswer \
 			  TheoremStuff
 
 ######################################################################

@@ -4,8 +4,9 @@
 % By Simon Pratt (mostly)
 \documentclass{tufte-handout}
 
+\usepackage{geometry}
+\geometry{verbose,tmargin=1in,bmargin=0.5in,lmargin=.5in}
 \usepackage{includes/CGAlgorithms}
-\usepackage{includes/QuestionAnswer}
 \usepackage{includes/TheoremStuff}
 \usepackage{includes/HeaderStuff}
 \usepackage{natbib}
@@ -41,10 +42,12 @@ voronoi regions for $u$ and $v$ share an edge.
 
 \begin{figure}
   % http://groups.csail.mit.edu/graphics/classes/6.838/F01/lectures/Delaunay/Delaunay2D.ppt
-  \includegraphics{figures/delaunay_graph.png}
+  \includegraphics[scale=1.6]{figures/delaunay_graph.png}
   \caption{The Delaunay graph on $P$, including the boundaries of the
     Voronoi regions.}
 \end{figure}
+
+\newpage
 
 \part{Dobkin's Results}
 
@@ -69,7 +72,7 @@ either all above or all below the direct line, we say that this is a
 one-sided path.
 
 \begin{figure*}
-  \includegraphics[scale=1.0]{figures/one-sided_path.pdf}
+  \includegraphics[scale=0.8]{figures/one-sided_path.pdf}
   \caption{The cyan line shows the direct path, the green line shows
     the direct DT path, the dashed red lines show the boundaries of
     the Voronoi regions, and the circumcircles (also dashed) are
@@ -187,9 +190,7 @@ The general idea is that we stick to the region above the x-axis as
 much as possible, and follow the path below the x-axis if it isn't too
 far from the next point above the x-axis.
 
-Otherwise, we follow the lower convex hull of all points in $P$
-between $b_i$ and $b_j$, who are above the x-axis and below the line
-segment between $b_i$ and $b_j$.
+\newpage
 
 \begin{figure}
   \includegraphics[scale=1.2]{figures/height_width.pdf}
@@ -206,6 +207,17 @@ segment between $b_i$ and $b_j$.
 
 To be specific, we take the direct DT path only if $h \le w/4$.
 
+\begin{figure}
+  \includegraphics[scale=3.0]{figures/height_width2.pdf}
+  \caption{An example showing $T$ where $h > w/4$.}
+\end{figure}
+
+Otherwise, we follow the lower convex hull of all points in $P$
+between $b_i$ and $b_j$, who are above the x-axis and below the line
+segment between $b_i$ and $b_j$.
+
+% diagram showing lower convex hull
+
 This is still within the spanning ratio because...?
 
 \begin{Lemma}
@@ -214,6 +226,10 @@ This is still within the spanning ratio because...?
   $b_j$, then the direct DT path from $u$ to $v$ is one-sided.
   
 \end{Lemma}
+
+% diagram showing conditions of lemma
+
+% proof of lemma
 
 \newpage
 \part{Keil's Results}
