@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70010" creator="Ipe 7.0.10">
-<info created="D:20130604150026" modified="D:20130604150026"/>
+<info created="D:20130604150026" modified="D:20130605111219"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -233,16 +233,10 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <path layer="alpha" stroke="black">
-96 0 0 96 128 704 e
-</path>
-<path stroke="black">
 64 0 0 64 240 704 e
 </path>
 <path matrix="1 0 0 1 -0.591716 -0.591716" stroke="black">
 80 0 0 80 368 704 e
-</path>
-<path stroke="black">
-64 0 0 64 480 704 e
 </path>
 <path stroke="navy" pen="ultrafat">
 1.0474 0 0 1.0474 206.957 758.745 e
@@ -258,11 +252,6 @@ h
 294.721 671.137 l
 434.457 748.515 l
 434.457 748.515 l
-</path>
-<path stroke="darkgray" dash="dotted">
-32 704 m
-544 704 l
-544 704 l
 </path>
 <path stroke="darkgray" dash="dotted">
 207.021 758.849 m
@@ -286,5 +275,9 @@ h
 <text matrix="1 0 0 1 -17.7515 12.426" transformations="translations" pos="448.408 743.52" stroke="darkmagenta" type="label" width="8.473" height="6.919" depth="2.85" valign="baseline">$b_j$</text>
 <text matrix="1 0 0 1 -26.6272 -3.5503" transformations="translations" pos="308.171 720.443" stroke="darkorange" type="label" width="5.74" height="6.918" depth="0" valign="baseline">$h$</text>
 <text matrix="1 0 0 1 -12.426 -2.95858" transformations="translations" pos="322.964 709.2" stroke="darkgreen" type="label" width="7.401" height="4.289" depth="0" valign="baseline">$w$</text>
+<path stroke="darkgray" dash="dashed" pen="heavier">
+176 704 m
+448 704 l
+</path>
 </page>
 </ipe>
