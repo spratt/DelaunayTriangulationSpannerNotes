@@ -219,11 +219,15 @@ Otherwise, we follow the lower convex hull of all points in $P$
 between $b_i$ and $b_j$, who are above the x-axis and below the line
 segment between $b_i$ and $b_j$.
 
+The length of the path between $b_i,b_j$ with no shortcuts is at most
+$t + 2(y(b_i) + y(b_j))$ and the length of the path between $b_i,b_j$
+using the lower hull is at most $t \cdot \pi /2$ (by Lemma 3).
+
 % diagram showing lower convex hull
 
 $(z_k,z_{k+1})$ is an edge on the lower convex hull between $b_i$ and
-$b_j$.  Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
-Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
+$b_j$.  Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
+Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
 
 \begin{Lemma}
 
@@ -233,9 +237,7 @@ Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
 
 \begin{proof}
   
-  From Lemma 2, we know all points along the direct DT path must fall
-  within the circle $(z_k, z_{k+1})$, therefore $R_3$ and the lower
-  semi-circle do not intersect.
+  From assumption, $L$ and $R_3$ do not intersect.
 
 \end{proof}
 
@@ -251,6 +253,8 @@ Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
   therefore $y(z_k) \ge h > w/4$ by the fact that we only build this
   lower hull in the case where $h > w/4$.
 
+  TODO: why is $y(q) \le y(z_k)$?
+
 \end{proof}
 
 \begin{Lemma}
@@ -261,7 +265,7 @@ Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
 
 \begin{proof}
 
-  TODO.
+  Any point within $L$ and $R_4$ must also be within $C$.
 
 \end{proof}
 
@@ -283,6 +287,71 @@ Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
   No points of $P$ may exist in $R_1$ above $h$ but below the line
   segment $z_kz_{k+1}$, otherwise it would be on the lower convex hull
   and $z_k$ and $z_{k+1}$ would not be adjacent.
+
+\end{proof}
+
+\begin{Lemma}
+
+  Where $a,b,c$ are sides of a triangle then
+
+  \begin{displaymath}
+    %
+    \frac{a}{2} + b \le \frac{\sqrt{5}}{2} \cdot c
+    %
+  \end{displaymath}
+  
+\end{Lemma}
+
+\begin{proof}
+  \begin{displaymath}
+    %
+    \frac{a}{2} + b \le a + b \le c \le \frac{\sqrt{5}}{2} \cdot c
+    %
+  \end{displaymath}
+\end{proof}
+
+\begin{Theorem}
+
+  There exists a DT path from $a$ to $b$ of length
+
+  \begin{displaymath}
+    %
+    \le \frac{\pi}{2} \cdot (1 + \sqrt{5}) \cdot d(a,b)
+    %
+  \end{displaymath}
+
+\end{Theorem}
+
+\begin{proof}
+
+  By Lemmas 3 and 7, we know that the length of the shortcut path is
+  the sum of the one-sided paths in the lower convex hull between
+  $b_i$ and $b_j$ which is at most $t \cdot \pi / 2$.
+
+  In the case where $h \le w/4$ and we don't take a shortcut, then let
+  $q$ be the lowest point on $T$, $t$ be the length of $T$, $t_i$ be
+  the section of $T$ between $b_i$ and $q$, $t_j$ be defined similarly
+  for $b_j$, $w_i$ be the projection of $t_i$ on the x-axis, and $w_j$
+  be defined similarly for $t_j$.
+
+  The length of the path is at most
+
+  \begin{align*}
+    %
+    t + 2(y(b_i) + y(b_j))
+    &= t + 2(2h + (y(b_i) - h) + (y(b_j) - h)) \\
+    &\le t + 2(\frac{w}{2} + (y(b_i) - h) + (y(b_j) - h)) \\
+    &\le t + 2(\frac{w_i}{2} + (y(b_i) - h) + \frac{w_j}{2} + (y(b_j) - h)) \\
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot t_i + \frac{\sqrt{5}}{2} \cdot t_i) \\
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot (t_i + t_i)) \\
+    &\le t + \sqrt{5} \cdot t \\
+    &\le t (1 + \sqrt{5})
+    %
+  \end{align*}
+
+  From Lemma 3, we know that half the boundary of the unioned circles
+  is an upper bound on the length of the path, so it must be at most
+  $\frac{\pi}{2} \cdot (1 + \sqrt{5}) \cdot d(a,b)$.
 
 \end{proof}
 
