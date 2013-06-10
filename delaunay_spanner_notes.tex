@@ -187,8 +187,9 @@ which can yield a much longer path.
 \end{figure}
 
 The general idea is that we stick to the region above the x-axis as
-much as possible, and follow the path below the x-axis if it isn't too
-far from the next point above the x-axis.
+much as possible, and follow the path below the x-axis if the distance
+travelled across the axis is small compared to the distance travelled
+along the path before the next time the path crosses the x-axis.
 
 \newpage
 
@@ -292,7 +293,8 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
 
 \begin{Lemma}
 
-  Where $a,b,c$ are sides of a triangle then
+  Where $a,b,c$ are sides of a right triangle with $c$ being the
+  hypotenuse, then
 
   \begin{displaymath}
     %
@@ -303,11 +305,20 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
 \end{Lemma}
 
 \begin{proof}
-  \begin{displaymath}
+  Without loss of generality, assume $b \le a$.
+  
+  \begin{align*}
     %
-    \frac{a}{2} + b \le a + b \le c \le \frac{\sqrt{5}}{2} \cdot c
+    a^2 + b^2 &= c^2 \\
+    5a^2 + 5b^2 &= 5c^2 \\
+    a^2 + 4a^2 + 5b^2 &= 5c^2 \\
+    a^2 + 4a^2 + 4b^2 &\le 5c^2 \\
+    a^2 + 4ab + 4b^2 &\le 5c^2 \\
+    (a + 2b)^2 &\le 5c^2 \\
+    a + 2b &\le \sqrt{5} \cdot c \\
+    \frac{a}{2} + b &\le \frac{\sqrt{5}}{2} \cdot c \\
     %
-  \end{displaymath}
+  \end{align*}
 \end{proof}
 
 \begin{Theorem}
