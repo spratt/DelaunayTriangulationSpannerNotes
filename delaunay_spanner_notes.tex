@@ -82,21 +82,56 @@ one-sided path.
 Without loss of generality, we can say that the line segment between
 points $a$ and $b$ lies on the x-axis.
 
+\newpage
+
 \begin{Lemma}
+
+  \label{lemma:monotonic:path}
 
   Points along a direct DT path are monotonic in $x$.
 
 \end{Lemma}
 
+\begin{proof}
+
+  All points along the perpendicular bisector of two adjacent points
+  on the direct DT path, $b_i$ and $b_{i+1}$, must be equidistant to
+  each of these points.  Since we know these points are adjacent along
+  the direct path, they must share a Voronoi edge which must be a
+  segment of this bisector.  Since we know the direct line (which is
+  the x-axis) crosses this Voronoi edge, we know $b_i$ must lie to the
+  left and $b_{i+1}$ must lie to the right of the bisector.
+  
+\end{proof}
+
 \begin{Lemma}
+
+  \label{lemma:circle:contains:path}
 
   All points along the direct DT path from $a$ to $b$ are contained
   within or on the boundary of the circle with $a$ and $b$
-  diametrically opposed.
+  diametrically opposed.  \footnotemark
   
 \end{Lemma}
 
+% TODO: make this better
+  
+\begin{proof}
+  
+  Let $x$ be a point on the direct DT path outside of the circle
+  with $a$ and $b$ diametrically opposed, whose centre is $c$.  We
+  know $d(x,c) > d(a,c) = d(b,c)$.  Without loss of generality,
+  assume $d(a,x) \ge d(b,x)$.  Therefore, $d(a,x) > d(a,c)$.  This
+  means the Voronoi region of $x$ could not intersect with the
+  direct line between $a$ and $b$.
+  
+\end{proof}
+
+\newpage
+
 \begin{Lemma}
+
+  \label{lemma:boundary:circles}
 
   The boundary of a connected union of $n$ circles has length at most
   $\pi \cdot ( x_r - x_l )$ where $x_r$ and $x_l$ are the extreme x
@@ -168,11 +203,12 @@ So
   
 \end{proof}
 
-From lemmas 1 and 3, it follows that the one-sided path is at most
-$\pi/2$ times as long as the euclidean distance between the endpoints.
+From lemmas \ref{lemma:monotonic:path} and
+\ref{lemma:boundary:circles}, it follows that the one-sided path is at
+most $\pi/2$ times as long as the euclidean distance between the
+endpoints.
 
-The properties of the delaunay triangulation don't seem to allow for
-any kind of zig-zag one-sided path.
+% TODO: give a nice explanation of this
 
 \section{The Harder Case}
 
@@ -224,7 +260,7 @@ The length of the path between $b_i,b_j$ with no shortcuts is at most
 $t + 2(y(b_i) + y(b_j))$ and the length of the path between $b_i,b_j$
 using the lower hull is at most $t \cdot \pi /2$ (by Lemma 3).
 
-% diagram showing lower convex hull
+% TODO: add diagram showing lower convex hull
 
 $(z_k,z_{k+1})$ is an edge on the lower convex hull between $b_i$ and
 $b_j$.  Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
@@ -232,66 +268,16 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
 
 \begin{Lemma}
 
-  No points of $P$ are within $L$ and $R_3$.
-  
-\end{Lemma}
-
-\begin{proof}
-  
-  From assumption, $L$ and $R_3$ do not intersect.
-
-\end{proof}
-
-\begin{Lemma}
-
-  No points of $P$ are within $L$ and $R_2$.
-  
-\end{Lemma}
-
-\begin{proof}
-
-  Since $z_k \in P$, it must lie above $T$ since it can't be within $C$,
-  therefore $y(z_k) \ge h > w/4$ by the fact that we only build this
-  lower hull in the case where $h > w/4$.
-
-  TODO: why is $y(q) \le y(z_k)$?
-
-\end{proof}
-
-\begin{Lemma}
-
-  No points of $P$ are within $L$ and $R_4$.
-  
-\end{Lemma}
-
-\begin{proof}
-
-  Any point within $L$ and $R_4$ must also be within $C$.
-
-\end{proof}
-
-\begin{Lemma}
+  \label{lemma:convex:path:one:sided}
 
   The direct DT path from $z_k$ to $z_{k+1}$ is one-sided.
   
 \end{Lemma}
 
-\begin{proof}
+% TODO: explain how this means the shortcut path is bounded
 
-  We prove this by showing that $L$ contains no points of $P$.  From
-  Lemmas 4, 5, and 6 it remains only to show that there are no points
-  of $P$ within $L$ and $R_1$.
-
-  No points of $P$ in $R_1$ exist between the lines $y=h$ and $y=-h$,
-  since this area is strictly within $C$.
-
-  No points of $P$ may exist in $R_1$ above $h$ but below the line
-  segment $z_kz_{k+1}$, otherwise it would be on the lower convex hull
-  and $z_k$ and $z_{k+1}$ would not be adjacent.
-
-\end{proof}
-
-\begin{Lemma}
+\begin{Note}
+  \label{note:right:triangle}
 
   Where $a,b,c$ are sides of a right triangle with $c$ being the
   hypotenuse, then
@@ -302,9 +288,69 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
     %
   \end{displaymath}
   
-\end{Lemma}
+\end{Note}
+
+\begin{Theorem}
+
+  There exists a DT path from $a$ to $b$ of length
+
+  \begin{displaymath}
+    %
+    \le \frac{\pi}{2} \cdot (1 + \sqrt{5}) \cdot d(a,b)
+    %
+  \end{displaymath}
+
+\end{Theorem}
 
 \begin{proof}
+
+  By lemmas \ref{lemma:boundary:circles} and
+  \ref{lemma:convex:path:one:sided}, we know that the length of the
+  shortcut path is the sum of the one-sided paths in the lower convex
+  hull between $b_i$ and $b_j$ which is at most $t \cdot \pi / 2$.
+
+  In the case where $h \le w/4$ and we don't take a shortcut, then let
+  $q$ be the lowest point on $T$, $t$ be the length of $T$, $t_i$ be
+  the section of $T$ between $b_i$ and $q$, $t_j$ be defined similarly
+  for $b_j$, $w_i$ be the projection of $t_i$ on the x-axis, and $w_j$
+  be defined similarly for $t_j$.
+
+  The length of the path is at most
+
+  \begin{align*}
+    %
+    t + 2(y(b_i) + y(b_j)) &= t + 2(2h + (y(b_i) - h) + (y(b_j) - h)) \\
+    &\le t + 2(\frac{w}{2} + (y(b_i) - h) + (y(b_j) - h)) \\
+    &\le t + 2(\frac{w_i}{2} + (y(b_i) - h) + \frac{w_j}{2} + (y(b_j) - h)) \\
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot t_i + \frac{\sqrt{5}}{2} \cdot t_i)
+    \tag{from Note \ref{note:right:triangle}} \\
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot (t_i + t_i)) \\
+    &\le t + \sqrt{5} \cdot t \\
+    &\le t (1 + \sqrt{5})
+    %
+  \end{align*}
+
+  From lemma \ref{lemma:boundary:circles}, we know that half the
+  boundary of the unioned circles is an upper bound on the length of
+  the path, so it must be at most $\frac{\pi}{2} \cdot (1 + \sqrt{5})
+  \cdot d(a,b)$.
+
+\end{proof}
+
+\newpage
+
+\section{Secondary Proofs}
+
+Note \ref{note:right:triangle} states if $a,b,c$ are sides of a right
+triangle with $c$ being the hypotenuse, then
+
+\begin{displaymath}
+  % 
+  \frac{a}{2} + b \le \frac{\sqrt{5}}{2} \cdot c
+  % 
+\end{displaymath}
+
+\begin{proof}[Proof of Note \ref{note:right:triangle}]
   Without loss of generality, assume $b \le a$.
   
   \begin{align*}
@@ -321,48 +367,63 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
   \end{align*}
 \end{proof}
 
-\begin{Theorem}
+\subsection{Proof of Lemma \ref{lemma:convex:path:one:sided}}
 
-  There exists a DT path from $a$ to $b$ of length
+\begin{Note}
 
-  \begin{displaymath}
-    %
-    \le \frac{\pi}{2} \cdot (1 + \sqrt{5}) \cdot d(a,b)
-    %
-  \end{displaymath}
+  No points of $P$ are within $L$ and $R_3$.
+  
+\end{Note}
 
-\end{Theorem}
+\begin{proof}
+  
+  From assumption, $L$ and $R_3$ do not intersect.
+
+\end{proof}
+
+\begin{Note}
+
+  No points of $P$ are within $L$ and $R_2$.
+  
+\end{Note}
 
 \begin{proof}
 
-  By Lemmas 3 and 7, we know that the length of the shortcut path is
-  the sum of the one-sided paths in the lower convex hull between
-  $b_i$ and $b_j$ which is at most $t \cdot \pi / 2$.
+  Since $z_k \in P$, it must lie above $T$ since it can't be within $C$,
+  therefore $y(z_k) \ge h > w/4$ by the fact that we only build this
+  lower hull in the case where $h > w/4$.
 
-  In the case where $h \le w/4$ and we don't take a shortcut, then let
-  $q$ be the lowest point on $T$, $t$ be the length of $T$, $t_i$ be
-  the section of $T$ between $b_i$ and $q$, $t_j$ be defined similarly
-  for $b_j$, $w_i$ be the projection of $t_i$ on the x-axis, and $w_j$
-  be defined similarly for $t_j$.
+  TODO: why is $y(q) \le y(z_k)$?
 
-  The length of the path is at most
+\end{proof}
 
-  \begin{align*}
-    %
-    t + 2(y(b_i) + y(b_j))
-    &= t + 2(2h + (y(b_i) - h) + (y(b_j) - h)) \\
-    &\le t + 2(\frac{w}{2} + (y(b_i) - h) + (y(b_j) - h)) \\
-    &\le t + 2(\frac{w_i}{2} + (y(b_i) - h) + \frac{w_j}{2} + (y(b_j) - h)) \\
-    &\le t + 2(\frac{\sqrt{5}}{2} \cdot t_i + \frac{\sqrt{5}}{2} \cdot t_i) \\
-    &\le t + 2(\frac{\sqrt{5}}{2} \cdot (t_i + t_i)) \\
-    &\le t + \sqrt{5} \cdot t \\
-    &\le t (1 + \sqrt{5})
-    %
-  \end{align*}
+\begin{Note}
 
-  From Lemma 3, we know that half the boundary of the unioned circles
-  is an upper bound on the length of the path, so it must be at most
-  $\frac{\pi}{2} \cdot (1 + \sqrt{5}) \cdot d(a,b)$.
+  No points of $P$ are within $L$ and $R_4$.
+  
+\end{Note}
+
+\begin{proof}
+
+  Any point within $L$ and $R_4$ must also be within $C$.
+
+\end{proof}
+
+Lemma \ref{lemma:convex:path:one:sided} states that the direct DT path
+from $z_k$ to $z_{k+1}$ is one-sided.
+  
+\begin{proof}[Proof of Lemma \ref{lemma:convex:path:one:sided}]
+
+  We prove this by showing that $L$ contains no points of $P$.  From
+  Lemmas 4, 5, and 6 it remains only to show that there are no points
+  of $P$ within $L$ and $R_1$.
+
+  No points of $P$ in $R_1$ exist between the lines $y=h$ and $y=-h$,
+  since this area is strictly within $C$.
+
+  No points of $P$ may exist in $R_1$ above $h$ but below the line
+  segment $z_kz_{k+1}$, otherwise it would be on the lower convex hull
+  and $z_k$ and $z_{k+1}$ would not be adjacent.
 
 \end{proof}
 
