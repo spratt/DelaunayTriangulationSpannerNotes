@@ -203,12 +203,19 @@ So
   
 \end{proof}
 
-From lemmas \ref{lemma:monotonic:path} and
-\ref{lemma:boundary:circles}, it follows that the one-sided path is at
-most $\pi/2$ times as long as the euclidean distance between the
-endpoints.
+Let $a = b_0, \ldots, b_i, \ldots, b_n = b$ be the direct DT path from
+$a$ to $b$.  For each pair $b_i, b_{i+1}$ create the circle on whose
+boundary these points lie, and whose centre is on the line segment
+between $a$ and $b$.  Let the union of these circles be $C$.
 
-% TODO: give a nice explanation of this
+From lemma \ref{lemma:boundary:circles}, we know that the length of
+the upper half of $C$ is most $\pi/2$ times as long as the euclidean
+distance between $a$ and $b$.
+
+From lemma \ref{lemma:monotonic:path}, we know that a one-sided direct
+DT path is an x-monotonic path along the upper half of $C$, and
+therefore the length of the upper half of $C$ is an upper bound for
+the one-sided direct DT path, which is at most $\pi/2$.
 
 \section{The Harder Case}
 
@@ -231,23 +238,22 @@ along the path before the next time the path crosses the x-axis.
 
 \begin{figure}
   \includegraphics[scale=2.9]{figures/height_width.pdf}
-  \caption{Let $a = p_0, \ldots, p_i, \ldots, p_n = b$ be the direct
-    DT path from $a$ to $b$.  For each pair $p_i, p_{i+1}$ create the
-    circle on whose boundary these points lie, and whose centre is on
-    the line segment between $a$ and $b$.  Let the union of these
-    circles be $C$.
 
-    Let $b_i$ be the last point before the direct DT
-    path dips below the x-axis, let $b_j$ be the next point after
-    $b_i$ on or above the x-axis.  Let $T$ be the section of $C$
-    between $b_i$ and $b_j$.  Let $h = min \{ y(q): q \text{ lies on }
+  \caption{
+    
+    Let $b_i$ be the last point before the direct DT path dips below the
+    x-axis, let $b_j$ be the next point after $b_i$ on or above the
+    x-axis.  Let $T$ be the section of $C$ between $b_i$ and $b_j$.  Let
+    the length of $T$ be $t$.  Let $h = min \{ y(q): q \text{ lies on }
     T \}$, and $w = x(b_j) - x(b_i)$.
 
     Let $R_1$ be the region between $b_i$ and $b_j$ above the line
     $y=-h$.  Let $R_2$ be the region below the line $y=-h$.  Let $R_3$
     be the region above the line $y=-h$ and to the left of $b_i$.  Let
     $R_4$ be the region above the line $y=-h$ and to the right of
-    $b_j$. }
+    $b_j$.
+
+  }
 \end{figure}
 
 To be specific, we take the direct DT path only if $h \le w/4$.
@@ -274,7 +280,19 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
   
 \end{Lemma}
 
-% TODO: explain how this means the shortcut path is bounded
+Since we know the direct DT path from $z_k$ to $z_{k+1}$ is one-sided,
+we know its length is bounded by $\pi/2 \cdot d(z_k,z_{k+1})$.
+
+\begin{Note}
+  \label{note:convex:path}
+
+  A convex path $P$ contained within a region $R$ has length at most
+  the boundary of $R$.
+
+\end{Note}
+
+From note \ref{note:convex:path}, the sum of the length of all convex
+shortcut edges is at most $\pi/2 \cdot t$.
 
 \begin{Note}
   \label{note:right:triangle}
@@ -304,10 +322,8 @@ Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
 
 \begin{proof}
 
-  By lemmas \ref{lemma:boundary:circles} and
-  \ref{lemma:convex:path:one:sided}, we know that the length of the
-  shortcut path is the sum of the one-sided paths in the lower convex
-  hull between $b_i$ and $b_j$ which is at most $t \cdot \pi / 2$.
+  We have shown the shortcut path has length at most $t \cdot \pi /
+  2$.
 
   In the case where $h \le w/4$ and we don't take a shortcut, then let
   $q$ be the lowest point on $T$, $t$ be the length of $T$, $t_i$ be
