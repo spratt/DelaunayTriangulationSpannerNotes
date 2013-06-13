@@ -69,9 +69,9 @@ Good as Complete Graphs'' by Dobkin, Friedman, and Supowit.
 \section{Introduction}
 
 Let the line segment between $a$ and $b$ be the \emph{direct line}.
-We construct \emph{the direct DT path} by walking along the direct
-line, each time a new face of the Voronoi diagram is reached we add
-the corresponding edge in the Delaunay Graph.
+We construct \emph{the direct DT path} by following the Delaunay edge
+to the representative point each time the direct line crosses into a
+new Voronoi region.
 
 \section{One-Sided Path: The Easy Case}
 
@@ -241,8 +241,6 @@ The general idea is that we stick to the region above the x-axis as
 much as possible, and follow the path below the x-axis if the distance
 travelled across the axis is small compared to the distance travelled
 along the path before the next time the path crosses the x-axis.
-
-\newpage
 
 \begin{figure}
   \includegraphics[scale=2.9]{figures/height_width.pdf}
