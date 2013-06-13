@@ -47,6 +47,15 @@ voronoi regions for $u$ and $v$ share an edge.
     Voronoi regions.}
 \end{figure}
 
+\part{Spanner}
+
+Given two points $a,b$ whose euclidean distance from each other is
+$d(a,b)$, we would like to prove that a subset of the complete graph
+on those points has the property that the distance along the edges in
+the path $d_G(a,b)$ is at most $t \cdot d(a,b)$.  Such a graph is
+called a $t$-spanner.  We call $t$ the \emph{spanning ratio} of the
+spanner.
+
 \newpage
 
 \part{Dobkin's Results}
@@ -59,11 +68,10 @@ Good as Complete Graphs'' by Dobkin, Friedman, and Supowit.
 
 \section{Introduction}
 
-We consider the path between two arbitray points $a,b \in P$.  Let the
-line segment between $a$ and $b$ be the \emph{direct line}.  We
-construct \emph{the direct DT path} by walking along the direct line,
-each time a new face of the Voronoi diagram is reached we add the
-corresponding edge in the Delaunay Graph.
+Let the line segment between $a$ and $b$ be the \emph{direct line}.
+We construct \emph{the direct DT path} by walking along the direct
+line, each time a new face of the Voronoi diagram is reached we add
+the corresponding edge in the Delaunay Graph.
 
 \section{One-Sided Path: The Easy Case}
 
@@ -286,15 +294,16 @@ we know its length is bounded by $\pi/2 \cdot d(z_k,z_{k+1})$.
 \begin{Note}
   \label{note:convex:path}
 
-  A convex curve $P$ contained within a bounded region $R$ has length
-  at most the length of the boundary of $R$. \cite{Benson:1966}
+  A convex curve contained within a boundary $B$ has length at most
+  the length of $B$. \cite{Benson:1966} % page 42
+
+  % note that I found this reference in Aaron Lee's MCS Thesis
 
 \end{Note}
 
 From note \ref{note:convex:path}, since the lower convex hull is a
-convex region within the region bounded by $T$ and the line $b_i,b_j$,
-the sum of the length of all convex shortcut edges is at most $\pi/2
-\cdot t$.
+convex curve contained within $T$, the sum of the length of all
+shortcut edges is at most $\pi/2 \cdot t$.
 
 \begin{Note}
   \label{note:right:triangle}
