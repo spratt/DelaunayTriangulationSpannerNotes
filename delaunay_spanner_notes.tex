@@ -71,26 +71,8 @@ Good as Complete Graphs'' by Dobkin, Friedman, and Supowit.
 Let the line segment between $a$ and $b$ be the \emph{direct line}.
 We construct \emph{the direct DT path} by following the Delaunay edge
 to the representative point each time the direct line crosses into a
-new Voronoi region.
-
-\section{One-Sided Path: The Easy Case}
-
-If all edges along the direct DT path between points $a,b \in P$ are
-either all above or all below the direct line, we say that this is a
-one-sided path.
-
-\begin{figure*}
-  \includegraphics[scale=0.8]{figures/one-sided_path.pdf}
-  \caption{The cyan line shows the direct path, the green line shows
-    the direct DT path, the dashed red lines show the boundaries of
-    the Voronoi regions, and the circumcircles (also dashed) are
-    blue.}
-\end{figure*}
-
-Without loss of generality, we can say that the line segment between
-points $a$ and $b$ lies on the x-axis.
-
-\newpage
+new Voronoi region.  Without loss of generality, we can say that the
+line segment between points $a$ and $b$ lies on the x-axis.
 
 \begin{Lemma}
 
@@ -112,32 +94,23 @@ points $a$ and $b$ lies on the x-axis.
   
 \end{proof}
 
-\begin{Lemma}
-
-  \label{lemma:circle:contains:path}
-
-  All points along the direct DT path from $a$ to $b$ are contained
-  within or on the boundary of the circle with $a$ and $b$
-  diametrically opposed.  \footnotemark
-  
-\end{Lemma}
-
-% TODO: make this better
-  
-\begin{proof}
-  
-  Let $x$ be a point on the direct DT path outside of the circle
-  with $a$ and $b$ diametrically opposed, whose centre is $c$.  We
-  know $d(x,c) > d(a,c) = d(b,c)$.  Without loss of generality,
-  assume $d(a,x) \ge d(b,x)$.  Therefore, $d(a,x) > d(a,c)$.  This
-  means the Voronoi region of $x$ could not intersect with the
-  direct line between $a$ and $b$.
-  
-\end{proof}
-
 \newpage
 
-\begin{Lemma}
+\section{One-Sided Path: The Easy Case}
+
+If all edges along the direct DT path between points $a,b \in P$ are
+either all above or all below the direct line, we say that this is a
+one-sided path.
+
+\begin{figure*}
+  \includegraphics[scale=0.8]{figures/one-sided_path.pdf}
+  \caption{The cyan line shows the direct path, the green line shows
+    the direct DT path, the dashed red lines show the boundaries of
+    the Voronoi regions, and the circumcircles (also dashed) are
+    blue.}
+\end{figure*}
+
+\begin{Lemma}[3]
 
   \label{lemma:boundary:circles}
 
@@ -262,6 +235,8 @@ along the path before the next time the path crosses the x-axis.
   }
 \end{figure}
 
+\newpage
+
 To be specific, we take the direct DT path only if $h \le w/4$.
 
 Otherwise, we follow the lower convex hull of all points in $P$
@@ -275,10 +250,9 @@ using the lower hull is at most $t \cdot \pi /2$ (by Lemma 3).
 % TODO: add diagram showing lower convex hull
 
 $(z_k,z_{k+1})$ is an edge on the lower convex hull between $b_i$ and
-$b_j$.  Let $L$ be the lower semi-circle of $circle(z_k, z_{k+1})$.
-Without loss of generality, assume $y(z_k) \le y(z_{k+1})$.
+$b_j$.  
 
-\begin{Lemma}
+\begin{Lemma}[4]
 
   \label{lemma:convex:path:one:sided}
 
@@ -302,6 +276,8 @@ we know its length is bounded by $\pi/2 \cdot d(z_k,z_{k+1})$.
 From note \ref{note:convex:path}, since the lower convex hull is a
 convex curve contained within $T$, the sum of the length of all
 shortcut edges is at most $\pi/2 \cdot t$.
+
+\newpage
 
 \begin{Note}
   \label{note:right:triangle}
@@ -347,9 +323,9 @@ shortcut edges is at most $\pi/2 \cdot t$.
     t + 2(y(b_i) + y(b_j)) &= t + 2(2h + (y(b_i) - h) + (y(b_j) - h)) \\
     &\le t + 2(\frac{w}{2} + (y(b_i) - h) + (y(b_j) - h)) \\
     &\le t + 2(\frac{w_i}{2} + (y(b_i) - h) + \frac{w_j}{2} + (y(b_j) - h)) \\
-    &\le t + 2(\frac{\sqrt{5}}{2} \cdot t_i + \frac{\sqrt{5}}{2} \cdot t_i)
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot t_i + \frac{\sqrt{5}}{2} \cdot t_j)
     \tag{from Note \ref{note:right:triangle}} \\
-    &\le t + 2(\frac{\sqrt{5}}{2} \cdot (t_i + t_i)) \\
+    &\le t + 2(\frac{\sqrt{5}}{2} \cdot (t_i + t_j)) \\
     &\le t + \sqrt{5} \cdot t \\
     &\le t (1 + \sqrt{5})
     %
@@ -393,6 +369,34 @@ triangle with $c$ being the hypotenuse, then
 \end{proof}
 
 \subsection{Proof of Lemma \ref{lemma:convex:path:one:sided}}
+
+\begin{Lemma}[2]
+
+  \label{lemma:circle:contains:path}
+
+  All points along the direct DT path from $a$ to $b$ are contained
+  within or on the boundary of the circle with $a$ and $b$
+  diametrically opposed.  \footnotemark
+  
+\end{Lemma}
+
+% TODO: make this better
+  
+\begin{proof}
+  
+  Let $x$ be a point on the direct DT path outside of the circle
+  with $a$ and $b$ diametrically opposed, whose centre is $c$.  We
+  know $d(x,c) > d(a,c) = d(b,c)$.  Without loss of generality,
+  assume $d(a,x) \ge d(b,x)$.  Therefore, $d(a,x) > d(a,c)$.  This
+  means the Voronoi region of $x$ could not intersect with the
+  direct line between $a$ and $b$.
+  
+\end{proof}
+
+From Lemma \ref{lemma:circle:contains:path}, we know $circle(z_k,
+z_{k+1})$ must contain all the points on the direct DT path from $z_k$
+to $z_{k+1}$.  Let the lower half of said circle be $L$.  Without loss
+of generality, assume $y(z_k) \le y(z_{k+1})$.
 
 \begin{Note}
 
